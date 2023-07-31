@@ -2,7 +2,7 @@
 
 ## cnbc_demo_v1.py
 cnbc_demo_v1.py is a script for taking a screenshot of the Dow Jones Industrial Average 3-month
-chart from https://cnbc.com.
+chart from https://cnbc.com.  This uses the Selenium library.
 
 To run:
 
@@ -12,7 +12,7 @@ python cnbc_demo_v1.py
 
 
 ## cnbc_demo_v2.py
-cnbc_demo_v2.py does the same thing, but it has a Page Object Model structure.
+cnbc_demo_v2.py does the same thing, but it uses the Page Object Model structure.
 
 To run: 
 
