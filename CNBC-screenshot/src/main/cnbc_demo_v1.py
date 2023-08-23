@@ -8,6 +8,7 @@ and takes a screenshot
 '''
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -16,7 +17,11 @@ import datetime, time
 if __name__ == '__main__':
 
     # create a new Chrome session
-    driver = webdriver.Chrome()
+    # Selenium Manager can sync driver with local Chrome browser
+    # see https://stackoverflow.com/questions/76727774/selenium-webdriver-chrome-115-stopped-working
+    service = Service()
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(service=service,options=options)
     driver.implicitly_wait(30)
     driver.maximize_window()
 

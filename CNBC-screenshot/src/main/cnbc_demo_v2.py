@@ -9,6 +9,7 @@ Structured as Page Object Model
 @author: Paul Taniguchi
 '''
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from pages.home_page import HomePage
 
 if __name__ == '__main__':
@@ -17,7 +18,11 @@ if __name__ == '__main__':
     test_stock = 'Dow Jones Industrial Average'
     
     # create a new Chrome session
-    driver = webdriver.Chrome()
+    # Selenium Manager can sync driver with local Chrome browser
+    # see https://stackoverflow.com/questions/76727774/selenium-webdriver-chrome-115-stopped-working
+    service = Service()
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(service=service,options=options)
     driver.implicitly_wait(30)
     driver.maximize_window()
 
