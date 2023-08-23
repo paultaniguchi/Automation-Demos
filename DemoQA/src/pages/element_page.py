@@ -103,8 +103,12 @@ class ElementPage(BasePage):
         click the button_type button where
         button_type is double, right, single
         '''
-        click_button = driver.find_element(By.CSS_SELECTOR,
-                                           self._click_button[button_type])
+        #click_button = driver.find_element(By.CSS_SELECTOR,
+        #                                   self._click_button[button_type])
+        click_button = WebDriverWait(driver,timeout=30).until(expected_conditions.\
+                element_to_be_clickable((By.CSS_SELECTOR,
+                                           self._click_button[button_type])))
+        
         if button_type == 'double':
             ActionChains(driver).double_click(click_button).perform()
         elif button_type == 'right':
