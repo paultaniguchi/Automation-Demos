@@ -9,7 +9,7 @@ from abc import abstractmethod
 
 class BasePage(object):
     '''
-    classdocs
+    parent class for the page objects
     '''
 
 
@@ -17,12 +17,13 @@ class BasePage(object):
         '''
         Constructor
         '''
-        self._validate_page(driver)
-        self.driver = driver
+        self.driver = driver        
+        self._validate_page()
+
         
     @abstractmethod
     # abstract for checking the page
-    def _validate_page(self, driver):
+    def _validate_page(self):
         return
     
     # search is present on all pages

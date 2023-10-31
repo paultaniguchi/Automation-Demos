@@ -25,11 +25,11 @@ class HomePage(BasePage):
         '''
         super(HomePage, self).__init__(driver)
         
-    def _validate_page(self, driver):        
+    def _validate_page(self):        
         
         try:
             # check the page title to check if page loaded
-            WebDriverWait(driver,timeout=10).until(expected_conditions.\
+            WebDriverWait(self.driver,timeout=10).until(expected_conditions.\
                 visibility_of_element_located((By.CSS_SELECTOR,self._home_page_tiles)))
         except:
             raise InvalidPageException("Home Page not loaded")

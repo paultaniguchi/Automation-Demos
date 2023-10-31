@@ -28,7 +28,7 @@ class ChartPage(BasePage):
         super(ChartPage, self).__init__(driver)
         
         
-    def _validate_page(self, driver):
+    def _validate_page(self):
         pass
     
     def take_screenshot(self):
