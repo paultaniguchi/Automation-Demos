@@ -28,7 +28,7 @@ class HomePage(BasePage):
     def _validate_page(self):        
         
         try:
-            # check the page title to check if page loaded
+            # home page has loaded when the ome page tiles are present
             WebDriverWait(self.driver,timeout=10).until(expected_conditions.\
                 visibility_of_element_located((By.CSS_SELECTOR,self._home_page_tiles)))
         except:

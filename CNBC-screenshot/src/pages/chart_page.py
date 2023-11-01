@@ -7,6 +7,7 @@ Page Object for the page with the stock price chart
 @author: Paul Taniguchi
 '''
 from pages.base import BasePage
+from pages.base import InvalidPageException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -29,7 +30,13 @@ class ChartPage(BasePage):
         
         
     def _validate_page(self):
-        pass
+        
+        try:
+            # chart page has loaded when the chart is present
+            WebDriverWait(self.driver,timeout=10).until(expected_conditions.\
+                visibility_of_element_located((By.CSS_SELECTOR,self._chart)))
+        except:
+            raise InvalidPageException("Chart not loaded")
     
     def take_screenshot(self):
         '''take screenshot'''
