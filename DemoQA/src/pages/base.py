@@ -17,11 +17,11 @@ class BasePage(object):
         '''
         Constructor
         '''
-        self._validate_page(driver)
         self.driver = driver
+        self._validate_page()
         
     @abstractmethod
-    def _validate_page(self, driver):
+    def _validate_page(self):
         return
     
     def suppress_ad_banner(self, driver):

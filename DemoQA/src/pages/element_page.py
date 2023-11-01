@@ -47,13 +47,13 @@ class ElementPage(BasePage):
         #self.suppress_ad_banner(driver, self._side_ad_banner)
         
         
-    def _validate_page(self, driver):   
+    def _validate_page(self):   
         '''
         check that it's on correct page
         '''     
         try:
             # check the page title to check if page loaded
-            WebDriverWait(driver,timeout=10).until(expected_conditions.\
+            WebDriverWait(self.driver,timeout=10).until(expected_conditions.\
                 url_contains(self._elementpage_url))
         except:
             raise InvalidPageException("Element Page not loaded")

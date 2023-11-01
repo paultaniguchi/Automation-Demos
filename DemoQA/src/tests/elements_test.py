@@ -3,9 +3,9 @@ Tests for the Elements UI on the https://demoqa.com/elements page
 
 @author: Paul Taniguchi
 '''
+import unittest
 from tests.base_test_case import BaseTestCase
 from pages.home_page import HomePage
-import unittest
 
 class ElementPageTest(BaseTestCase):
 
