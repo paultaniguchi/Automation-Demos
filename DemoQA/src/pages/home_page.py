@@ -33,7 +33,7 @@ class HomePage(BasePage):
         except:
             raise InvalidPageException("Home Page not loaded")
         
-    def tile_click(self, driver, tile):
+    def tile_click(self, tile):
         '''
         click the element tile on the homepage
         '''

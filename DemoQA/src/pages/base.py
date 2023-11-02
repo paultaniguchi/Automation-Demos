@@ -24,7 +24,7 @@ class BasePage(object):
     def _validate_page(self):
         return
     
-    def suppress_ad_banner(self, driver):
+    def suppress_ad_banner(self):
         '''
         hide pesky ad banners by changing DOM visibility
         see https://stackoverflow.com/questions/49921128/selenium-cant-click-element-because-other-element-obscures-it

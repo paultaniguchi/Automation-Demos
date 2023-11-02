@@ -27,17 +27,17 @@ class ElementPageTest(BaseTestCase):
     
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner(self.driver)
-        elementpage = homepage.tile_click(self.driver, self._elements_tile)
-        elementpage.suppress_ad_banner(self.driver)
+        homepage.suppress_ad_banner()
+        elementpage = homepage.tile_click(self._elements_tile)
+        elementpage.suppress_ad_banner()
         # bring up the Text Box UI & fill out field
-        elementpage.click_text_box(self.driver)
-        elementpage.set_text_box_fields(self.driver, text_box_data)
+        elementpage.click_text_box()
+        elementpage.set_text_box_fields(text_box_data)
         
         # test the correct user details is returned
         # note: in the actual web page Permanent is misspelled as Permananet 
         # this test will fail        
-        self.assertDictEqual(elementpage.get_text_box_display_fields(self.driver),
+        self.assertDictEqual(elementpage.get_text_box_display_fields(),
                              exp_text_box_data)
         
     def test_double_click_button(self):
@@ -49,13 +49,13 @@ class ElementPageTest(BaseTestCase):
         
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner(self.driver)
-        elementpage = homepage.tile_click(self.driver, self._elements_tile)
-        elementpage.suppress_ad_banner(self.driver)
+        homepage.suppress_ad_banner()
+        elementpage = homepage.tile_click(self._elements_tile)
+        elementpage.suppress_ad_banner()
         # bring up the Buttons UI
-        elementpage.click_buttons(self.driver)
-        elementpage.general_click_me_click(self.driver,'double')
-        self.assertEqual(elementpage.get_general_click_me_text(self.driver,'double'),
+        elementpage.click_buttons()
+        elementpage.general_click_me_click('double')
+        self.assertEqual(elementpage.get_general_click_me_text('double'),
                 exp_double_click_text)
         
     def test_right_click_button(self):
@@ -67,13 +67,13 @@ class ElementPageTest(BaseTestCase):
         
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner(self.driver)
-        elementpage = homepage.tile_click(self.driver, self._elements_tile)
-        elementpage.suppress_ad_banner(self.driver)
+        homepage.suppress_ad_banner()
+        elementpage = homepage.tile_click(self._elements_tile)
+        elementpage.suppress_ad_banner()
         # bring up the Buttons UI
-        elementpage.click_buttons(self.driver)
-        elementpage.general_click_me_click(self.driver,'right')
-        self.assertEqual(elementpage.get_general_click_me_text(self.driver,'right'),
+        elementpage.click_buttons()
+        elementpage.general_click_me_click('right')
+        self.assertEqual(elementpage.get_general_click_me_text('right'),
                 exp_right_click_text)
 
 if __name__ == "__main__":
