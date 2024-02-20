@@ -35,7 +35,8 @@ class ElementPage(BasePage):
                 'button#rightClickBtn','single':'button#hcu9D'}
     _click_text = {'double':'p#doubleClickMessage','right':
                 'p#rightClickMessage','single':'p#dynamicClickMessage'}
-    _supp_list = ['div#Ad\.Plus-728x90','div#Ad\.Plus-300x250','div#fixedban','footer']
+    _supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
+                  'section#RightSide_Advertisement','div#fixedban','footer']
 
 
     def __init__(self, driver):
