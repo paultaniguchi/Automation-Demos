@@ -9,6 +9,7 @@ from pages.base import InvalidPageException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.common.action_chains import ActionChains
 
 class HomePage(BasePage):
     '''
@@ -16,7 +17,8 @@ class HomePage(BasePage):
     '''
     _element_tile = '//div[h5="Elements"]'
     _homepage_title = 'DEMOQA'
-    _supp_list = ['div#fixedban','footer']
+    # _supp_list = ['div#fixedban','footer']
+    _supp_list = ['div#fixedban']
 
     def __init__(self, driver):
         '''
@@ -40,5 +42,10 @@ class HomePage(BasePage):
         # find the tile passed thru
         if tile == 'elements':
             button = self.driver.find_element(By.XPATH,self._element_tile)
+            # scroll to the row of tiles
+            self.driver.execute_script("arguments[0].scrollIntoView();",
+                        button)
             button.click()
+            #ActionChains(self.driver).move_to_element(button).click(button)\
+            #.perform()
             return ElementPage(self.driver)

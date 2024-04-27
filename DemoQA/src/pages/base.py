@@ -32,8 +32,9 @@ class BasePage(object):
         for supp_css in self._supp_list:
             ad_element = self.driver.find_element(By.CSS_SELECTOR, 
                                                   supp_css)
-            self.driver.execute_script("arguments[0].setAttribute\
-            ('style',arguments[1]);",ad_element, "visibility:hidden;")
+            #self.driver.execute_script("arguments[0].setAttribute\
+            #('style',arguments[1]);",ad_element, "visibility:hidden;")
+            self.driver.execute_script("arguments[0].remove()",ad_element)
             
     
 class InvalidPageException(Exception):
