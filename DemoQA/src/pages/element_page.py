@@ -35,9 +35,11 @@ class ElementPage(BasePage):
                 'button#rightClickBtn','single':'button#hcu9D'}
     _click_text = {'double':'p#doubleClickMessage','right':
                 'p#rightClickMessage','single':'p#dynamicClickMessage'}
+    #_supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
+    #              'section#RightSide_Advertisement','div#fixedban','footer']
+    # when div#fixedban is removed on home page, it doesn't appear on elements 
     _supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
-                  'section#RightSide_Advertisement','div#fixedban','footer']
-
+                  'section#RightSide_Advertisement']
 
     def __init__(self, driver):
         '''
