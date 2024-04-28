@@ -80,7 +80,9 @@ class ElementPage(BasePage):
             text_box_field.send_keys(text_box_data[key])
             
         # submit button
-        self.driver.find_element(By.CSS_SELECTOR,self._submit_button).click()
+        #self.driver.find_element(By.CSS_SELECTOR,self._submit_button).click()
+        self.scroll_and_click(self.driver.find_element(By.CSS_SELECTOR,
+                    self._submit_button))
             
     def get_text_box_display_fields(self):
         '''

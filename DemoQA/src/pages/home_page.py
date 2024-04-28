@@ -41,11 +41,13 @@ class HomePage(BasePage):
         '''
         # find the tile passed thru
         if tile == 'elements':
-            button = self.driver.find_element(By.XPATH,self._element_tile)
+            #button = self.driver.find_element(By.XPATH,self._element_tile)
             # scroll to the row of tiles
-            self.driver.execute_script("arguments[0].scrollIntoView();",
-                        button)
-            button.click()
+            #self.driver.execute_script("arguments[0].scrollIntoView();",
+            #            button)
+            #button.click()
+            self.scroll_and_click(self.driver.find_element(By.XPATH,
+                    self._element_tile))
             #ActionChains(self.driver).move_to_element(button).click(button)\
             #.perform()
             return ElementPage(self.driver)

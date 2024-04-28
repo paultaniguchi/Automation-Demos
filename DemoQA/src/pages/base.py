@@ -36,6 +36,14 @@ class BasePage(object):
             #('style',arguments[1]);",ad_element, "visibility:hidden;")
             self.driver.execute_script("arguments[0].remove()",ad_element)
             
+    def scroll_and_click(self, element):
+        '''
+        Laptop display is old & small
+        Scroll element into view then click
+        '''
+        self.driver.execute_script("arguments[0].scrollIntoView();",
+                        element)
+        element.click()
     
 class InvalidPageException(Exception):
     """ Throw this exception when you don't find the correct page """
