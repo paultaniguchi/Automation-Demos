@@ -26,19 +26,17 @@ class BasePage(object):
     
     def suppress_ad_banner(self):
         '''
-        hide pesky ad banners by changing DOM visibility
+        hide pesky ad banners by removing them from DOM
         see https://stackoverflow.com/questions/49921128/selenium-cant-click-element-because-other-element-obscures-it
         '''
         for supp_css in self._supp_list:
             ad_element = self.driver.find_element(By.CSS_SELECTOR, 
                                                   supp_css)
-            #self.driver.execute_script("arguments[0].setAttribute\
-            #('style',arguments[1]);",ad_element, "visibility:hidden;")
             self.driver.execute_script("arguments[0].remove()",ad_element)
             
     def scroll_and_click(self, element):
         '''
-        Laptop display is old & small
+        My laptop display is old & small. Webpage is too big for display.
         Scroll element into view then click
         '''
         self.driver.execute_script("arguments[0].scrollIntoView();",

@@ -35,9 +35,8 @@ class ElementPage(BasePage):
                 'button#rightClickBtn','single':'button#hcu9D'}
     _click_text = {'double':'p#doubleClickMessage','right':
                 'p#rightClickMessage','single':'p#dynamicClickMessage'}
-    #_supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
-    #              'section#RightSide_Advertisement','div#fixedban','footer']
-    # when div#fixedban is removed on home page, it doesn't appear on elements 
+    # when div#fixedban is removed on home page, not necessary to
+    # remove on other pages 
     _supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
                   'section#RightSide_Advertisement']
 
@@ -46,9 +45,6 @@ class ElementPage(BasePage):
         Constructor
         '''
         super(ElementPage, self).__init__(driver)
-        #self.suppress_ad_banner(driver, self._top_ad_banner)
-        #self.suppress_ad_banner(driver, self._side_ad_banner)
-        
         
     def _validate_page(self):   
         '''
@@ -80,7 +76,6 @@ class ElementPage(BasePage):
             text_box_field.send_keys(text_box_data[key])
             
         # submit button
-        #self.driver.find_element(By.CSS_SELECTOR,self._submit_button).click()
         self.scroll_and_click(self.driver.find_element(By.CSS_SELECTOR,
                     self._submit_button))
             
@@ -108,8 +103,6 @@ class ElementPage(BasePage):
         click the button_type button where
         button_type is double, right, single
         '''
-        #click_button = driver.find_element(By.CSS_SELECTOR,
-        #                                   self._click_button[button_type])
         click_button = WebDriverWait(self.driver,timeout=30).until(expected_conditions.\
                 element_to_be_clickable((By.CSS_SELECTOR,
                                            self._click_button[button_type])))

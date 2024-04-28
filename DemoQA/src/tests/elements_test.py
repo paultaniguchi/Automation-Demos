@@ -77,5 +77,4 @@ class ElementPageTest(BaseTestCase):
                 exp_right_click_text)
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
     unittest.main(verbosity=3)
