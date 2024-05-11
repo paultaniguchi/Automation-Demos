@@ -3,7 +3,7 @@ Tests for the Elements UI on the https://demoqa.com/elements page
 
 @author: Paul Taniguchi
 '''
-import unittest
+
 from tests.base_test_case import BaseTestCase
 from pages.home_page import HomePage
 
@@ -75,6 +75,3 @@ class ElementPageTest(BaseTestCase):
         elementpage.general_click_me_click('right')
         self.assertEqual(elementpage.get_general_click_me_text('right'),
                 exp_right_click_text)
-
-if __name__ == "__main__":
-    unittest.main(verbosity=3)
