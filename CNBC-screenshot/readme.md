@@ -5,7 +5,7 @@ chart from https://cnbc.com.  This uses the Selenium library to control a local 
 
 # What does it do?
 
- - cnbc_demo_v1.py enters "DJIA" into the search field on the home page.  It takes a screenshot of the 3-month chart.  To run:
+ - cnbc_demo_v1.py enters "Dow Jones Industrial Average" into the search field on the home page.  It takes a screenshot of the 3-month chart.  To run:
  
 ```
 python -m cnbc_demo_v1
