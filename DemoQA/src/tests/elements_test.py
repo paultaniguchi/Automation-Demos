@@ -37,8 +37,7 @@ class ElementPageTest(BaseTestCase):
         # test the correct user details is returned
         # note: in the actual web page Permanent is misspelled as Permananet 
         # this test will fail        
-        self.assertDictEqual(elementpage.get_text_box_display_fields(),
-                             exp_text_box_data)
+        assert elementpage.get_text_box_display_fields() == exp_text_box_data
         
     def test_double_click_button(self):
         '''
@@ -55,8 +54,8 @@ class ElementPageTest(BaseTestCase):
         # bring up the Buttons UI
         elementpage.click_buttons()
         elementpage.general_click_me_click('double')
-        self.assertEqual(elementpage.get_general_click_me_text('double'),
-                exp_double_click_text)
+        assert elementpage.get_general_click_me_text('double') \
+                == exp_double_click_text
         
     def test_right_click_button(self):
         '''
@@ -73,5 +72,5 @@ class ElementPageTest(BaseTestCase):
         # bring up the Buttons UI
         elementpage.click_buttons()
         elementpage.general_click_me_click('right')
-        self.assertEqual(elementpage.get_general_click_me_text('right'),
-                exp_right_click_text)
+        assert elementpage.get_general_click_me_text('right') \
+            == exp_right_click_text
