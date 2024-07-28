@@ -6,11 +6,26 @@ Tests for the Elements UI on the https://demoqa.com/elements page
 
 from tests.base_test_case import BaseTestCase
 from pages.home_page import HomePage
+from _pytest.fixtures import fixture
 
 class ElementPageTest(BaseTestCase):
 
     _elements_tile = 'elements'
 
+    '''
+    @fixture()
+    def go_to_element_page(self):
+        #Starting with the home page, go to the Element page
+        self.setUp()
+        homepage = HomePage(self.driver)
+        homepage.suppress_ad_banner()
+        elementpage = homepage.tile_click(self._elements_tile)
+        elementpage.suppress_ad_banner()
+        # bring up the Text Box UI & fill out field
+        elementpage.click_text_box()
+        return elementpage        
+    '''
+    
     def test_text_box(self):
         '''
         enter data into form
@@ -27,9 +42,9 @@ class ElementPageTest(BaseTestCase):
     
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner()
+        #homepage.suppress_ad_banner()
         elementpage = homepage.tile_click(self._elements_tile)
-        elementpage.suppress_ad_banner()
+        #elementpage.suppress_ad_banner()
         # bring up the Text Box UI & fill out field
         elementpage.click_text_box()
         elementpage.set_text_box_fields(text_box_data)
@@ -48,9 +63,9 @@ class ElementPageTest(BaseTestCase):
         
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner()
+        #homepage.suppress_ad_banner()
         elementpage = homepage.tile_click(self._elements_tile)
-        elementpage.suppress_ad_banner()
+        #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         elementpage.click_buttons()
         elementpage.general_click_me_click('double')
@@ -66,9 +81,9 @@ class ElementPageTest(BaseTestCase):
         
         # click the Elements tile
         homepage = HomePage(self.driver)
-        homepage.suppress_ad_banner()
+        #homepage.suppress_ad_banner()
         elementpage = homepage.tile_click(self._elements_tile)
-        elementpage.suppress_ad_banner()
+        #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         elementpage.click_buttons()
         elementpage.general_click_me_click('right')

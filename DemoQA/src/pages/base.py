@@ -20,6 +20,9 @@ class BasePage(object):
         self.driver = driver
         self._validate_page()
         
+        # get rid of ad banners
+        self.suppress_ad_banner()
+        
     @abstractmethod
     def _validate_page(self):
         return
