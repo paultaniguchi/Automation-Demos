@@ -47,7 +47,7 @@ class ElementPageTest(BaseTestCase):
         elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)
         #elementpage.suppress_ad_banner()
         # bring up the Text Box UI & fill out field
-        elementpage.click_text_box()
+        #elementpage.click_text_box()
         elementpage.set_text_box_fields(text_box_data)
         
         # test the correct user details is returned
@@ -69,7 +69,7 @@ class ElementPageTest(BaseTestCase):
         elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)        
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
-        elementpage.click_buttons()
+        #elementpage.click_buttons()
         elementpage.general_click_me_click('double')
         assert elementpage.get_general_click_me_text('double') \
                 == exp_double_click_text
@@ -88,7 +88,7 @@ class ElementPageTest(BaseTestCase):
         elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)        
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
-        elementpage.click_buttons()
+        #elementpage.click_buttons()
         elementpage.general_click_me_click('right')
         assert elementpage.get_general_click_me_text('right') \
             == exp_right_click_text

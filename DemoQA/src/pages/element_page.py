@@ -58,7 +58,7 @@ class ElementPage(BasePage):
             raise InvalidPageException("Element Page not loaded")
         
     # for the Text Box page
-    def click_text_box(self):
+    def go_to_text_box_page(self):
         '''
         select text_box from accordion
         '''
@@ -69,6 +69,9 @@ class ElementPage(BasePage):
         put data from text_box_data into the text_bbox 
         text_box_data is a dictionary
         '''
+        # expose text box
+        self.go_to_text_box_page()
+        
         for key in self._text_box_fields:
             text_box_field = self.driver.find_element(By.CSS_SELECTOR,self.
                             _text_box_fields[key])
@@ -91,7 +94,7 @@ class ElementPage(BasePage):
         return actual_display_field
     
     # for the Buttons page
-    def click_buttons(self):
+    def go_to_click_buttons_page(self):
         '''
         select buttons from accordion
         '''
@@ -103,6 +106,9 @@ class ElementPage(BasePage):
         click the button_type button where
         button_type is double, right, single
         '''
+        # expose click buttons
+        self.go_to_click_buttons_page()
+        
         click_button = WebDriverWait(self.driver,timeout=30).until(expected_conditions.\
                 element_to_be_clickable((By.CSS_SELECTOR,
                                            self._click_button[button_type])))
