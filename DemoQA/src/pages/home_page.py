@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
+from enum import Enum
 
 class HomePage(BasePage):
     '''
@@ -18,6 +19,13 @@ class HomePage(BasePage):
     _element_tile = '//div[h5="Elements"]'
     _homepage_title = 'DEMOQA'
     _supp_list = ['div#fixedban']
+    
+    #home_page_tile = Enum("home_page_tile",["ELEMENT"]
+    class home_page_tile(Enum):
+        '''
+        enums representing tiles on the home page
+        '''
+        ELEMENT = 1
 
     def __init__(self, driver):
         '''
@@ -34,12 +42,12 @@ class HomePage(BasePage):
         except:
             raise InvalidPageException("Home Page not loaded")
         
-    def tile_click(self, tile):
+    def go_to_page(self, selected_tile):
         '''
         click the element tile on the homepage
         '''
         # find the tile passed thru
-        if tile == 'elements':
+        if selected_tile is self.home_page_tile.ELEMENT:
             # scroll to the row of tiles
             self.scroll_and_click(self.driver.find_element(By.XPATH,
                     self._element_tile))

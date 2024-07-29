@@ -10,7 +10,7 @@ from _pytest.fixtures import fixture
 
 class ElementPageTest(BaseTestCase):
 
-    _elements_tile = 'elements'
+    #_elements_tile = 'elements'
 
     '''
     @fixture()
@@ -43,7 +43,8 @@ class ElementPageTest(BaseTestCase):
         # click the Elements tile
         homepage = HomePage(self.driver)
         #homepage.suppress_ad_banner()
-        elementpage = homepage.tile_click(self._elements_tile)
+        #elementpage = homepage.tile_click(self._elements_tile)
+        elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)
         #elementpage.suppress_ad_banner()
         # bring up the Text Box UI & fill out field
         elementpage.click_text_box()
@@ -64,7 +65,8 @@ class ElementPageTest(BaseTestCase):
         # click the Elements tile
         homepage = HomePage(self.driver)
         #homepage.suppress_ad_banner()
-        elementpage = homepage.tile_click(self._elements_tile)
+        #elementpage = homepage.tile_click(self._elements_tile)
+        elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)        
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         elementpage.click_buttons()
@@ -82,7 +84,8 @@ class ElementPageTest(BaseTestCase):
         # click the Elements tile
         homepage = HomePage(self.driver)
         #homepage.suppress_ad_banner()
-        elementpage = homepage.tile_click(self._elements_tile)
+        #elementpage = homepage.tile_click(self._elements_tile)
+        elementpage = homepage.go_to_page(homepage.home_page_tile.ELEMENT)        
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         elementpage.click_buttons()
