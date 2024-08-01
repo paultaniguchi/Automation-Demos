@@ -6,6 +6,7 @@ Tests for the Elements UI on the https://demoqa.com/elements page
 
 from tests.base_test_case import BaseTestCase
 from pages.home_page import HomePage
+from pages.element_page import ElementPage
 from _pytest.fixtures import fixture
 
 class ElementPageTest(BaseTestCase):
@@ -70,9 +71,9 @@ class ElementPageTest(BaseTestCase):
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         #elementpage.click_buttons()
-        elementpage.general_click_me_click('double')
-        assert elementpage.get_general_click_me_text('double') \
-                == exp_double_click_text
+        elementpage.general_click_me_click(elementpage.element_button_type.DOUBLE)
+        assert elementpage.get_general_click_me_text(
+            elementpage.element_button_type.DOUBLE) == exp_double_click_text
         
     def test_right_click_button(self):
         '''
@@ -89,6 +90,6 @@ class ElementPageTest(BaseTestCase):
         #elementpage.suppress_ad_banner()
         # bring up the Buttons UI
         #elementpage.click_buttons()
-        elementpage.general_click_me_click('right')
-        assert elementpage.get_general_click_me_text('right') \
-            == exp_right_click_text
+        elementpage.general_click_me_click(elementpage.element_button_type.RIGHT)
+        assert elementpage.get_general_click_me_text(
+            elementpage.element_button_type.RIGHT) == exp_right_click_text

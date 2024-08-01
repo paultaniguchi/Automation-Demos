@@ -9,6 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
+from enum import Enum
 
 class ElementPage(BasePage):
     '''
@@ -40,6 +41,15 @@ class ElementPage(BasePage):
     _supp_list = ['div#Ad\.Plus-970x250-1','div#Ad\.Plus-970x250-2',
                   'section#RightSide_Advertisement']
 
+    class element_button_type(Enum):
+        '''
+        enums representing button type
+        '''
+        RIGHT = 'right'
+        DOUBLE = 'double'
+        SINGLE = 'single'
+    
+    
     def __init__(self, driver):
         '''
         Constructor
@@ -104,18 +114,20 @@ class ElementPage(BasePage):
     def general_click_me_click(self, button_type):
         '''
         click the button_type button where
-        button_type is double, right, single
+        button_type is enum DOUBLE, RIGHT, or SINGLE
         '''
         # expose click buttons
         self.go_to_click_buttons_page()
         
         click_button = WebDriverWait(self.driver,timeout=30).until(expected_conditions.\
                 element_to_be_clickable((By.CSS_SELECTOR,
-                                           self._click_button[button_type])))
+                                           self._click_button[button_type.value])))
         
-        if button_type == 'double':
+        #if button_type == 'double':
+        if button_type is self.element_button_type.DOUBLE:
             ActionChains(self.driver).double_click(click_button).perform()
-        elif button_type == 'right':
+        #elif button_type == 'right':
+        elif button_type is self.element_button_type.RIGHT:
             ActionChains(self.driver).context_click(click_button).perform()
         else:
             ActionChains(self.driver).click(click_button).perform()
@@ -123,6 +135,8 @@ class ElementPage(BasePage):
     def get_general_click_me_text(self, button_type):
         '''
         return the text that's displayed after the button_type Click Me
-        button is right clicked
+        button is clicked
+        button_type is enum DOUBLE, RIGHT, or SINGLE
         '''
-        return self.driver.find_element(By.CSS_SELECTOR,self._click_text[button_type]).text
+        return self.driver.find_element(By.CSS_SELECTOR,self.
+                    _click_text[button_type.value]).text
