@@ -3,11 +3,11 @@ Parent class for the tests of the https://demoqa.com website
 
 @author: Paul Taniguchi
 '''
-import unittest
+#import unittest
 from selenium import webdriver
 
 
-class BaseTestCase(unittest.TestCase):
+class BaseTestCase():
 
     _test_url = 'https://demoqa.com'
 
